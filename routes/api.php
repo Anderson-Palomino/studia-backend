@@ -10,6 +10,9 @@ Route::get('/ping', function () {
     return response()->json(['message' => 'pong ✅']);
 });
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/verify-email', [AuthController::class, 'verifyEmail']);
+Route::post('/resend-verification', [AuthController::class, 'resendVerification']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/perfil', [AuthController::class, 'perfil']);
